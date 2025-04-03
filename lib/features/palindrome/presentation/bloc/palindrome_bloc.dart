@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:palindrome_checker_app/features/core/utils/api_response_status_helper.dart';
 import 'package:palindrome_checker_app/features/palindrome/data/repository/palindrome_repository_impl.dart';
 import 'package:palindrome_checker_app/features/palindrome/domain/entity/palindrome_result.dart';
 import 'package:palindrome_checker_app/features/palindrome/domain/repository/palindrome_repository.dart';
@@ -24,16 +23,8 @@ class PalindromeBloc extends Bloc<PalindromeEvent, PalindromeState> {
     final useCase = CheckPalindromeUseCase(_repository);
     emit(PalindromeLoading());
     final response = await useCase.call(event.input);
-
-    ApiResponseStatusHelper.handleResponseStatus(
-      response,
-      onOkResponse: () {
-        add(const GetHistoryEvent());
-      },
-      onErrorResponse: () {
-        emit(PalindromeError());
-      },
-    );
+    response.apiResponseStatus == 200 ? add(const GetHistoryEvent()) :
+    emit(PalindromeError());
   }
 
   Future<void> _onGetHistory(
@@ -41,16 +32,8 @@ class PalindromeBloc extends Bloc<PalindromeEvent, PalindromeState> {
     final useCase = GetHistoryUseCase(_repository);
     emit(PalindromeLoading());
     final response = await useCase.call();
-
-    ApiResponseStatusHelper.handleResponseStatus(
-      response,
-      onOkResponse: () {
-        emit(PalindromeLoaded([PalindromeResult(input: "input", isPalindrome: true, timeStamp: DateTime.now())]));
-      },
-      onErrorResponse: () {
-        emit(PalindromeError());
-      },
-    );
+    response.apiResponseStatus == 200 ? emit(PalindromeLoaded(response.response.response)) :
+    emit(PalindromeError());
   }
 
   Future<void> _onClearHistory(
@@ -58,15 +41,7 @@ class PalindromeBloc extends Bloc<PalindromeEvent, PalindromeState> {
     final useCase = ClearHistoryUseCase(_repository);
     emit(PalindromeLoading());
     final response = await useCase.call();
-
-    ApiResponseStatusHelper.handleResponseStatus(
-      response,
-      onOkResponse: () {
-        add(const GetHistoryEvent());
-      },
-      onErrorResponse: () {
-        emit(PalindromeError());
-      },
-    );
+    response.apiResponseStatus == 200 ? add(const GetHistoryEvent()) :
+    emit(PalindromeError());
   }
 }

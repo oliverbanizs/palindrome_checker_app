@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:palindrome_checker_app/features/core/widgets/custom_elevated_button.dart';
-import 'package:palindrome_checker_app/features/palindrome/domain/entity/palindrome_result.dart';
 import 'package:palindrome_checker_app/features/palindrome/presentation/bloc/palindrome_bloc.dart';
 
 class PalindromeScreenHistorySection extends StatelessWidget {
@@ -50,11 +49,9 @@ class PalindromeScreenHistorySection extends StatelessWidget {
                                   color: result.isPalindrome ? Colors.green : Colors.red,
                                 ),
                               ),
-                              trailing: Expanded(
-                                child: Text(
-                                  "${result.timeStamp.hour.toString().padLeft(2, '0')}:${result.timeStamp.minute.toString().padLeft(2, '0')}",
-                                  style: const TextStyle(color: Colors.white70),
-                                ),
+                              trailing: Text(
+                                result.timeStamp,
+                                style: const TextStyle(color: Colors.white70),
                               ),
                             ),
                           ),
