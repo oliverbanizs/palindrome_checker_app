@@ -18,4 +18,12 @@ class ApiResponseStatusHelper {
       return ApiResponse(apiResponseStatus: response.statusCode);
     }
   }
+
+  static void handleResponseStatus(ApiResponse response, {required Function() onOkResponse, required Function() onErrorResponse}) {
+    if(response.apiResponseStatus == 200) {
+      onOkResponse();
+    } else {
+      onErrorResponse();
+    }
+  }
 }

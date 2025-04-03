@@ -1,3 +1,5 @@
+import 'package:palindrome_checker_app/features/core/utils/api_response.dart';
+
 import '../repository/palindrome_repository.dart';
 
 class GetHistoryUseCase {
@@ -5,7 +7,8 @@ class GetHistoryUseCase {
 
   GetHistoryUseCase(this.repository);
 
-  Future<void> call(String text) async {
-    await repository.getHistory();
+  Future<ApiResponse> call() async {
+    final response = await repository.getHistory();
+    return response;
   }
 }
