@@ -12,7 +12,7 @@ class PalindromeResultModel extends PalindromeResult {
     return PalindromeResultModel(
       input: json['input'],
       isPalindrome: json['isPalindrome'],
-      timeStamp: DateTime.parse(json['timeStamp']),
+      timeStamp: json['timeStamp'],
     );
   }
 
@@ -20,7 +20,7 @@ class PalindromeResultModel extends PalindromeResult {
     return {
       'input': input,
       'isPalindrome': isPalindrome,
-      'timeStamp': timeStamp.toIso8601String(),
+      'timeStamp': timeStamp,
     };
   }
 }

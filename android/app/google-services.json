@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "690893010151",
+    "project_id": "palindrome-checker-app",
+    "storage_bucket": "palindrome-checker-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690893010151:android:324b3fac6d019e07571e42",
+        "android_client_info": {
+          "package_name": "com.example.palindrome_checker_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlBUXD4I0mT9kAqrRiRI4ZyXJw1jxyOqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

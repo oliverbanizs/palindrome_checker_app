@@ -49,6 +49,7 @@ class _PalindromeScreenInputSectionState
                 context
                     .read<PalindromeBloc>()
                     .add(CheckPalindromeEvent(controller.text));
+                controller.clear();
               }),
         )
       ],

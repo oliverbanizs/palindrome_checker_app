@@ -1,7 +1,7 @@
 class PalindromeResult {
   final String input;
   final bool isPalindrome;
-  final DateTime timeStamp;
+  final String timeStamp;
 
   PalindromeResult({
     required this.input,

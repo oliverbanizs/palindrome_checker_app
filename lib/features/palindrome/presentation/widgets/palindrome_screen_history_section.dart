@@ -50,11 +50,9 @@ class PalindromeScreenHistorySection extends StatelessWidget {
                                   color: result.isPalindrome ? Colors.green : Colors.red,
                                 ),
                               ),
-                              trailing: Expanded(
-                                child: Text(
-                                  "${result.timeStamp.hour.toString().padLeft(2, '0')}:${result.timeStamp.minute.toString().padLeft(2, '0')}",
-                                  style: const TextStyle(color: Colors.white70),
-                                ),
+                              trailing: Text(
+                                result.timeStamp,
+                                style: const TextStyle(color: Colors.white70),
                               ),
                             ),
                           ),
