@@ -35,7 +35,7 @@ class CustomTextFormField {
         labelText: labelText,
         floatingLabelStyle: const TextStyle(height: 4, color: textFieldBorderColor),
         filled: true,
-        fillColor: Colors.grey[200],
+        fillColor: textFieldFillColor,
       ),
       validator:
       validatorFunction != null ? (value) => validatorFunction(value) : null,

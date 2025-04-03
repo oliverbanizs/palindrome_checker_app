@@ -1,5 +1,4 @@
-import 'package:sqflite/sqflite.dart';
-const String tableName = 'palindromes';
+/*const String tableName = 'palindromes';
 class DBHelper {
   Future<Database> initDB() async {
     final path = await getDatabasesPath();
@@ -11,4 +10,4 @@ class DBHelper {
       version: 1,
     );
   }
-}
+} */

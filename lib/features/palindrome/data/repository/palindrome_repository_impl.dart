@@ -10,14 +10,14 @@ class PalindromeRepositoryImpl implements PalindromeRepository {
     String sanitizeText(String text) => text.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
     final String cleanText = sanitizeText(text);
     final bool isPalindrome = cleanText == cleanText.split('').reversed.join('');
-    final response = await http.get(Uri());
-    return ApiResponseStatusHelper.handleResponse(response);
+    ///final response = await http.get(Uri());
+    return ApiResponse(response: [], apiResponseStatus: 200);
   }
 
   @override
   Future<ApiResponse>getHistory() async {
-    final response = await http.get(Uri());
-    return ApiResponseStatusHelper.handleResponse(response);
+    ///final response = await http.get(Uri());
+    return ApiResponse(response: [], apiResponseStatus: 200);
   }
 
   @override
